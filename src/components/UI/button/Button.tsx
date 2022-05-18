@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Icon } from '../Icon/Icon.styles';
 import { FilledButton, BorderedButton } from './Button.styles';
-import { ButtonContentContainer } from './ButtonContent.styles';
 /*
 It should be possible to pass onPress and onHold methods
 
@@ -33,8 +32,9 @@ type Props = {
   onPress?: () => void;
   onHold?: () => void;
   children?: React.ReactNode;
-  leftIcon?: any;
-  rightIcon?: any;
+  leftIcon?: string;
+  rightIcon?: string;
+  isDisabled?: boolean
 };
 
 const getButton = (buttonVariant: ButtonVariant) =>
@@ -51,9 +51,10 @@ const Button: React.FC<Props> = ({
   variant,
   leftIcon,
   rightIcon,
+  isDisabled = false,
   
 }) => {
-  const [isDisabled, setIsDisabled] = useState(false);
+
   const [isHolding, setIsHolding] = useState(false);
 
   const ChosenButton = getButton(variant);
@@ -61,12 +62,12 @@ const Button: React.FC<Props> = ({
   let buttonWidth = children ? '256px' : '';
 
   const handlePress = () => {
-    if (onPress) onPress();
+    if (onPress && !isDisabled) onPress();
     setIsHolding(true);
   }
 
   useEffect(() => {
-    if (!onHold || !isHolding) return;
+    if (!onHold || !isHolding || isDisabled) return;
     const interval = setInterval(onHold, 500)
     
     return ()=>{clearInterval(interval)}

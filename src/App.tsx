@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import logo from './logo.svg'
 import './App.css'
 import Button from './components/UI/button/Button'
 
@@ -13,18 +12,18 @@ function App() {
           <Button
             variant='bordered'
             onPress={() => setCount((count) => count + 1)}
-
             leftIcon='https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/410.svg'
           >
-            Press
+            Bordered Press
           </Button>
         </p>
         <p>
           <Button
             variant='filled'
-            rightIcon='https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/410.svg'
+            rightIcon='https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/mozilla.svg'
+            onHold={() => setCount((count) => count + 1)}
           >
-            Fiiled Hold
+            Filled Hold
           </Button>
         </p>
         <p>
@@ -32,13 +31,10 @@ function App() {
             variant='bordered'
             onPress={() => setCount((count) => count + 1)}
             onHold={() => setCount((count) => count + 1)}
-            rightIcon='https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/410.svg'
-          >
-          </Button>
+            rightIcon='https://www.svgrepo.com/show/177768/plus-signs.svg'
+          ></Button>
         </p>
         <p>Count: {count}</p>
-
-
       </header>
     </div>
   );
