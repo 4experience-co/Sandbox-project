@@ -62,13 +62,16 @@ const Button: React.FC<Props> = ({
   let buttonWidth = children ? '256px' : '';
 
   const handlePress = () => {
-    if (onPress && !isDisabled) onPress();
+    console.log("test");
     setIsHolding(true);
+    if (onPress && !isDisabled) onPress();
+    
   }
 
   useEffect(() => {
+    console.log("useffect");
     if (!onHold || !isHolding || isDisabled) return;
-    const interval = setInterval(onHold, 500)
+    const interval = setInterval(onHold, 250)
     
     return ()=>{clearInterval(interval)}
   },[isHolding])
@@ -78,7 +81,7 @@ const Button: React.FC<Props> = ({
       style={{ width: buttonWidth }}
       type={type}
       onMouseDown={handlePress}
-      onTouchStart={handlePress}
+      onTouchStart={() => setIsHolding(true)}
       onMouseUp={() => setIsHolding(false)}
       onTouchEnd={() => setIsHolding(false)}
     >
