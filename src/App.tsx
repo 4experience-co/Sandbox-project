@@ -1,45 +1,43 @@
 import { useState } from 'react'
-import logo from './logo.svg'
 import './App.css'
+import Button from './components/button/Button'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Test Test Test123123123</p>
+    <div className='App'>
+      <header className='App-header'>
         <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Button
+            variant='bordered'
+            onPress={() => setCount((count) => count + 1)}
+            leftIcon='https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/410.svg'
           >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
+            Bordered Press
+          </Button>
         </p>
+        <p>
+          <Button
+            variant='filled'
+            rightIcon='https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/mozilla.svg'
+            onHold={() => setCount((count) => count + 1)}
+          >
+            Filled Hold
+          </Button>
+        </p>
+        <p>
+          <Button
+            variant='bordered'
+            onPress={() => setCount((count) => count + 1)}
+            onHold={() => setCount((count) => count + 1)}
+            rightIcon='https://www.svgrepo.com/show/177768/plus-signs.svg'
+          ></Button>
+        </p>
+        <p>Count: {count}</p>
       </header>
     </div>
-  )
+  );
 }
 
 export default App
