@@ -1,13 +1,32 @@
-import { useState } from 'react'
-import './App.css'
-import Button from './components/button/Button'
+import { useState } from 'react';
+import './App.css';
+import Button from './components/button/Button';
+import Modal from './components/modal/Modal';
+import ModalBody from './components/modal/modal-content/ModalBody';
+import ModalFooter from './components/modal/modal-content/ModalFooter';
+import ModalHeader from './components/modal/modal-content/ModalHeader';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [showModal, setShowModal] = useState(true);
 
   return (
     <div className='App'>
       <header className='App-header'>
+        {showModal && (
+          <Modal onClose={() => setShowModal(false)}>
+            <ModalHeader onClose={() => setShowModal(false)} title='Title' />
+            <ModalBody>
+              aaa
+              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            </ModalBody>
+            <ModalFooter>
+              <Button variant='filled'>Confirm</Button>
+              <Button variant='bordered'>Reject</Button>
+            </ModalFooter>
+          </Modal>
+        )}
         <p>
           <Button
             variant='bordered'
@@ -40,4 +59,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
