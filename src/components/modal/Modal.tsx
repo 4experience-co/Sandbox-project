@@ -1,48 +1,78 @@
-import ReactDOM from "react-dom";
-import BackdropStyled from './BackdropStyled';
-import ModalOverlayStyled from './ModalOverlayStyled';
+import ReactDOM from 'react-dom';
+import { AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import Backdrop from './backdrop/Backdrop';
+import ModalOverlay from './modal-overlay/ModalOverlay';
 
-interface BackdropProps {
-  onClick: () => void;
-}
+type Animation = 'slideUp' | 'slideDown';
+
+const animations = {
+  slideDown: {
+    initial: {},
+    animate: {
+      y: '40vh',
+    },
+    exit: {
+      y: '150vh',
+    },
+  },
+  slideUp: {
+    initial: {
+      y: '100vh',
+    },
+    animate: {
+      y: '40vh',
+    },
+    exit: {
+      y: '-125vh',
+    },
+  },
+};
+
+const getAnimation = (animationType: Animation) => animations[animationType];
 
 interface ModalProps {
   onClose: () => void;
   children?: React.ReactNode;
+  openModal: boolean;
+  animationType: Animation;
 }
 
-type ModalOverlayProps = {
-  children?: React.ReactNode;
-}
+const portalElement = document.getElementById('overlays') as HTMLElement;
 
-const Backdrop: React.FC<BackdropProps> = (props) => {
-  return (
-    <BackdropStyled
-      onClick={props.onClick}
-    ></BackdropStyled>
-  );
-};
+const Modal: React.FC<ModalProps> = ({
+  children,
+  onClose,
+  openModal,
+  animationType,
+}) => {
+  const { initial, animate, exit } = getAnimation(animationType);
 
-
-const ModalOverlay: React.FC<ModalOverlayProps> = ({ children }) => {
-  return (
-    <ModalOverlayStyled>
-     {children}
-    </ModalOverlayStyled>
-  );
-};
-
-const portalElement = document.getElementById("overlays") as HTMLElement;
-
-const Modal: React.FC<ModalProps> = (props) => {
   return (
     <>
       {ReactDOM.createPortal(
-        <Backdrop onClick={props.onClose} />,
+        <AnimatePresence>
+          {openModal && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.99 }}
+              exit={{ opacity: 0 }}
+            >
+              <Backdrop onClick={onClose} />
+            </motion.div>
+          )}
+        </AnimatePresence>,
         portalElement
       )}
       {ReactDOM.createPortal(
-        <ModalOverlay>{props.children}</ModalOverlay>,
+        <AnimatePresence>
+          {openModal && (
+            <motion.div initial={initial} animate={animate} exit={exit}>
+              <ModalOverlay>{children}</ModalOverlay>
+            </motion.div>
+          )}
+        </AnimatePresence>,
+
         portalElement
       )}
     </>

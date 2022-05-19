@@ -14,19 +14,54 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        {showModal && (
-          <Modal onClose={() => setShowModal(false)}>
-            <ModalHeader onClose={() => setShowModal(false)} title='Title' />
-            <ModalBody>
-              aaa
-              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            </ModalBody>
-            <ModalFooter>
-              <Button variant='filled'>Confirm</Button>
-              <Button variant='bordered'>Reject</Button>
-            </ModalFooter>
-          </Modal>
-        )}
+        <Modal
+          onClose={() => setShowModal(false)}
+          openModal={showModal}
+          animationType='slideUp'
+        >
+          <ModalHeader onClose={() => setShowModal(false)} title='Title' />
+          <ModalBody>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Pellentesque eu hendrerit arcu. Nulla faucibus bibendum neque nec
+              malesuada. Proin urna orci, convallis vel risus nec, posuere
+              condimentum nisl. Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Pellentesque eu hendrerit arcu. Nulla faucibus
+              bibendum neque nec malesuada. Proin urna orci, convallis vel risus
+              nec, posuere condimentum nisl. Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit. Pellentesque eu hendrerit arcu. Nulla
+              faucibus bibendum neque nec malesuada. Proin urna orci, convallis
+              vel risus nec, posuere condimentum nisl. Lorem ipsum dolor sit
+              amet, consectetur adipiscing elit. Pellentesque eu hendrerit arcu.
+              Nulla faucibus bibendum neque nec malesuada. Proin urna orci,
+              convallis vel risus nec, posuere condimentum nisl. Lorem ipsum
+              dolor sit amet, consectetur adipiscing elit. Pellentesque eu
+              hendrerit arcu. Nulla faucibus bibendum neque nec malesuada. Proin
+              urna orci, convallis vel risus nec, posuere condimentum nisl.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Pellentesque eu hendrerit arcu. Nulla faucibus bibendum neque nec
+              malesuada. Proin urna orci, convallis vel risus nec, posuere
+              condimentum nisl. Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Pellentesque eu hendrerit arcu. Nulla faucibus
+              bibendum neque nec malesuada. Proin urna orci, convallis vel risus
+              nec, posuere condimentum nisl. Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit. Pellentesque eu hendrerit arcu. Nulla
+              faucibus bibendum neque nec malesuada. Proin urna orci, convallis
+              vel risus nec, posuere condimentum nisl. Lorem ipsum dolor sit
+              amet, consectetur adipiscing elit. Pellentesque eu hendrerit arcu.
+              Nulla faucibus bibendum neque nec malesuada. Proin urna orci,
+              convallis vel risus nec, posuere condimentum nisl. Lorem ipsum
+              dolor sit amet, consectetur adipiscing elit. Pellentesque eu
+              hendrerit arcu. Nulla faucibus bibendum neque nec malesuada. Proin
+
+            </p>
+          </ModalBody>
+          <ModalFooter>
+            <Button variant='filled'>Confirm</Button>
+            <Button variant='bordered'>Reject</Button>
+          </ModalFooter>
+        </Modal>
+
         <p>
           <Button
             variant='bordered'
@@ -53,6 +88,10 @@ function App() {
             rightIcon='https://www.svgrepo.com/show/177768/plus-signs.svg'
           ></Button>
         </p>
+
+        <Button variant='filled' onPress={() => setShowModal(true)}>
+          Open Modal
+        </Button>
         <p>Count: {count}</p>
       </header>
     </div>
