@@ -27,7 +27,7 @@ const Button: React.FC<Props> = ({
 }) => {
   const [isHolding, setIsHolding] = useState(false);
 
-  const handleMouseDown = useCallback(() => {
+  const handleOnMouseDown = useCallback(() => {
     setIsHolding(true);
     if (onPress && !isDisabled) onPress();
   }, []);
@@ -53,7 +53,7 @@ const Button: React.FC<Props> = ({
     <ButtonStyled
       variant={variant}
       type={type}
-      onMouseDown={handleMouseDown}
+      onMouseDown={handleOnMouseDown}
       onTouchStart={handleHoldStart}
       onMouseUp={handleHoldEnd}
       onTouchEnd={handleHoldEnd}
