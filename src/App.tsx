@@ -17,7 +17,7 @@ function App() {
         <Modal
           onClose={() => setShowModal(false)}
           openModal={showModal}
-          animationType='slideUp'
+          animation='slideUp'
         >
           <ModalHeader onClose={() => setShowModal(false)} title='Title' />
           <ModalBody>
@@ -53,7 +53,6 @@ function App() {
               convallis vel risus nec, posuere condimentum nisl. Lorem ipsum
               dolor sit amet, consectetur adipiscing elit. Pellentesque eu
               hendrerit arcu. Nulla faucibus bibendum neque nec malesuada. Proin
-
             </p>
           </ModalBody>
           <ModalFooter>

@@ -8,7 +8,6 @@ const BackdropStyled = styled.div`
   height: 100%;
   z-index: 20;
   background-color: rgba(0,0,0,0.5);
-  opacity: 1;
 `;
 
 export default BackdropStyled;

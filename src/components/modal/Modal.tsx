@@ -1,41 +1,38 @@
 import ReactDOM from 'react-dom';
-import { AnimatePresence } from 'framer-motion';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Backdrop from './backdrop/Backdrop';
 import ModalOverlay from './modal-overlay/ModalOverlay';
 
-type Animation = 'slideUp' | 'slideDown';
+type Animation = 'slideUp' | 'slideDown' | 'slideRight' | 'slideLeft';
 
 const animations = {
   slideDown: {
     initial: {},
-    animate: {
-      y: '40vh',
-    },
-    exit: {
-      y: '150vh',
-    },
+    animate: { y: '40vh' },
+    exit: { y: '150vh' },
   },
   slideUp: {
-    initial: {
-      y: '100vh',
-    },
-    animate: {
-      y: '40vh',
-    },
-    exit: {
-      y: '-125vh',
-    },
+    initial: { y: '100vh' },
+    animate: { y: '40vh' },
+    exit: { y: '-125vh' },
+  },
+  slideRight: {
+    initial: { y: '40vh', x: '-100vw' },
+    animate: { x: '0vw' },
+    exit: { x: '100vw' },
+  },
+  slideLeft: {
+    initial: { y: '40vh', x: '100vw' },
+    animate: { x: '0vw' },
+    exit: { x: '-100vw' },
   },
 };
-
-const getAnimation = (animationType: Animation) => animations[animationType];
 
 interface ModalProps {
   onClose: () => void;
   children?: React.ReactNode;
   openModal: boolean;
-  animationType: Animation;
+  animation: Animation;
 }
 
 const portalElement = document.getElementById('overlays') as HTMLElement;
@@ -44,9 +41,9 @@ const Modal: React.FC<ModalProps> = ({
   children,
   onClose,
   openModal,
-  animationType,
+  animation,
 }) => {
-  const { initial, animate, exit } = getAnimation(animationType);
+  const { initial, animate, exit } = animations[animation];
 
   return (
     <>
@@ -72,7 +69,6 @@ const Modal: React.FC<ModalProps> = ({
             </motion.div>
           )}
         </AnimatePresence>,
-
         portalElement
       )}
     </>

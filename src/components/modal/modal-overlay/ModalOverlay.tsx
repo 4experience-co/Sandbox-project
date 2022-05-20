@@ -1,4 +1,4 @@
-import ModalOverlayStyled from '../ModalOverlayStyled';
+import ModalOverlayStyled from './ModalOverlayStyled';
 
 type ModalOverlayProps = {
   children?: React.ReactNode;
