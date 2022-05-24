@@ -34,25 +34,6 @@ function App() {
               vel risus nec, posuere condimentum nisl. Lorem ipsum dolor sit
               amet, consectetur adipiscing elit. Pellentesque eu hendrerit arcu.
               Nulla faucibus bibendum neque nec malesuada. Proin urna orci,
-              convallis vel risus nec, posuere condimentum nisl. Lorem ipsum
-              dolor sit amet, consectetur adipiscing elit. Pellentesque eu
-              hendrerit arcu. Nulla faucibus bibendum neque nec malesuada. Proin
-              urna orci, convallis vel risus nec, posuere condimentum nisl.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Pellentesque eu hendrerit arcu. Nulla faucibus bibendum neque nec
-              malesuada. Proin urna orci, convallis vel risus nec, posuere
-              condimentum nisl. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Pellentesque eu hendrerit arcu. Nulla faucibus
-              bibendum neque nec malesuada. Proin urna orci, convallis vel risus
-              nec, posuere condimentum nisl. Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. Pellentesque eu hendrerit arcu. Nulla
-              faucibus bibendum neque nec malesuada. Proin urna orci, convallis
-              vel risus nec, posuere condimentum nisl. Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit. Pellentesque eu hendrerit arcu.
-              Nulla faucibus bibendum neque nec malesuada. Proin urna orci,
-              convallis vel risus nec, posuere condimentum nisl. Lorem ipsum
-              dolor sit amet, consectetur adipiscing elit. Pellentesque eu
-              hendrerit arcu. Nulla faucibus bibendum neque nec malesuada. Proin
             </p>
           </ModalBody>
           <ModalFooter>
@@ -60,38 +41,39 @@ function App() {
             <Button variant='bordered'>Reject</Button>
           </ModalFooter>
         </Modal>
+        <div style={{display: 'flex', flexDirection:"column", alignItems:"center"}}>
+          <p>
+            <Button
+              variant='bordered'
+              onPress={() => setCount((count) => count + 1)}
+              leftIcon='https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/410.svg'
+            >
+              Bordered Press
+            </Button>
+          </p>
+          <p>
+            <Button
+              variant='filled'
+              rightIcon='https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/mozilla.svg'
+              onHold={() => setCount((count) => count + 1)}
+            >
+              Filled Hold
+            </Button>
+          </p>
+          <p>
+            <Button
+              variant='bordered'
+              onPress={() => setCount((count) => count + 1)}
+              onHold={() => setCount((count) => count + 1)}
+              rightIcon='https://www.svgrepo.com/show/177768/plus-signs.svg'
+            ></Button>
+          </p>
 
-        <p>
-          <Button
-            variant='bordered'
-            onPress={() => setCount((count) => count + 1)}
-            leftIcon='https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/410.svg'
-          >
-            Bordered Press
+          <Button variant='filled' onPress={() => setShowModal(true)}>
+            Open Modal
           </Button>
-        </p>
-        <p>
-          <Button
-            variant='filled'
-            rightIcon='https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/mozilla.svg'
-            onHold={() => setCount((count) => count + 1)}
-          >
-            Filled Hold
-          </Button>
-        </p>
-        <p>
-          <Button
-            variant='bordered'
-            onPress={() => setCount((count) => count + 1)}
-            onHold={() => setCount((count) => count + 1)}
-            rightIcon='https://www.svgrepo.com/show/177768/plus-signs.svg'
-          ></Button>
-        </p>
-
-        <Button variant='filled' onPress={() => setShowModal(true)}>
-          Open Modal
-        </Button>
-        <p>Count: {count}</p>
+          <p>Count: {count}</p>
+        </div>
       </header>
     </div>
   );

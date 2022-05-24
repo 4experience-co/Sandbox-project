@@ -28,7 +28,7 @@ const animations = {
   },
 };
 
-interface ModalProps {
+type ModalProps = {
   onClose: () => void;
   children?: React.ReactNode;
   openModal: boolean;
@@ -47,7 +47,6 @@ const Modal: React.FC<ModalProps> = ({
 
   return (
     <>
-      {ReactDOM.createPortal(
         <AnimatePresence>
           {openModal && (
             <motion.div
@@ -58,19 +57,13 @@ const Modal: React.FC<ModalProps> = ({
               <Backdrop onClick={onClose} />
             </motion.div>
           )}
-        </AnimatePresence>,
-        portalElement
-      )}
-      {ReactDOM.createPortal(
-        <AnimatePresence>
           {openModal && (
             <motion.div initial={initial} animate={animate} exit={exit}>
               <ModalOverlay>{children}</ModalOverlay>
             </motion.div>
           )}
-        </AnimatePresence>,
-        portalElement
-      )}
+        </AnimatePresence>
+
     </>
   );
 };

@@ -10,9 +10,11 @@ const ModalOverlayStyled = styled.div`
   transform: translate(-50%, -50%);
   background-color: rgb(255, 255, 255);
   border-radius: 8px;
+  color:black;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
   z-index: 30;
   padding-bottom: 20px;
+ 
 `;
 
 export default ModalOverlayStyled;
