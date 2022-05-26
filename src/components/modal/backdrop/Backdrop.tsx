@@ -1,6 +1,6 @@
 import BackdropStyled from './BackdropStyled';
 
-interface BackdropProps {
+type BackdropProps = {
   onClick: () => void;
 }
 

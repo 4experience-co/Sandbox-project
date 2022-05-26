@@ -33,7 +33,7 @@ type ModalProps = {
   children?: React.ReactNode;
   openModal: boolean;
   animation: Animation;
-}
+};
 
 const portalElement = document.getElementById('overlays') as HTMLElement;
 
@@ -47,23 +47,24 @@ const Modal: React.FC<ModalProps> = ({
 
   return (
     <>
-        <AnimatePresence>
-          {openModal && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.99 }}
-              exit={{ opacity: 0 }}
-            >
-              <Backdrop onClick={onClose} />
-            </motion.div>
-          )}
-          {openModal && (
-            <motion.div initial={initial} animate={animate} exit={exit}>
-              <ModalOverlay>{children}</ModalOverlay>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
+      <AnimatePresence>
+        {openModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.99 }}
+            exit={{ opacity: 0 }}
+          >
+            <Backdrop onClick={onClose} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {openModal && (
+          <motion.div initial={initial} animate={animate} exit={exit}>
+            <ModalOverlay>{children}</ModalOverlay>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
