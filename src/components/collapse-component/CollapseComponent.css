@@ -1,0 +1,9 @@
+.ReactCollapse--collapse {
+  transition: height 600ms;
+}
+
+.ReactCollapse--content:after,
+.ReactCollapse--content:before {
+    content: "";
+    display: table;
+}
