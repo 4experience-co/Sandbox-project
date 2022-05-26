@@ -8,15 +8,16 @@ import CollapseContentStyled from './collapse-content/CollapseContentStyled';
 
 type Props = {
   children: React.ReactNode;
+  title: string
 };
 
-const CollapseComponent: React.FC<Props> = ({ children }) => {
+const CollapseComponent: React.FC<Props> = ({ children, title }) => {
   const [isOpened, setIsOpened] = useState(false);
 
   return (
     <CollapseComponentStyled>
       <CollapseButton
-        title='Test'
+        title={title}
         onPress={() => {
           setIsOpened((prevValue) => !prevValue);
         }}
