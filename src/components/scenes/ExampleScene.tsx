@@ -1,6 +1,7 @@
 import 'aframe';
 
 import {
+  Entity,
   Scene,
   Box,
   Sphere,
@@ -10,8 +11,27 @@ import {
 } from '@belivvr/aframe-react';
 
 function ExampleScene() {
+  const log = () => { console.log("log")}
   return (
     <Scene embedded>
+      <Entity
+        oculusTouchControls={{ hand: 'right' }}
+        events={{
+          abuttondown: log,
+          bbuttondown: log,
+        }}
+      />
+
+      <Entity
+        oculusTouchControls={{ hand: 'left' }}
+        events={{
+          ybuttondown: log,
+          xbuttondown: log,
+          triggerdown: log,
+          triggerDown: log,
+          TriggerDown: log,
+        }}
+      />
       <Box
         position={{ x: -1, y: 0.5, z: -3 }}
         rotation={{ x: 0, y: 45, z: 0 }}
