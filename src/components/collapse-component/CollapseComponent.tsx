@@ -5,6 +5,7 @@ import Button from '../button/Button';
 import CollapseComponentStyled from './CollapseComponentStyled';
 import CollapseButton from './collapse-button/CollapseButton';
 import CollapseContentStyled from './collapse-content/CollapseContentStyled';
+import Hr from '../Hr/Hr';
 
 type Props = {
   children: React.ReactNode;
@@ -26,7 +27,7 @@ const CollapseComponent: React.FC<Props> = ({ children, title }) => {
 
       <Collapse isOpened={isOpened}>
         <CollapseContentStyled>
-          <hr />
+          <Hr />
           {children}
         </CollapseContentStyled>
       </Collapse>
