@@ -11,7 +11,7 @@ import {
 
 function ExampleScene() {
   return (
-    <Scene>
+    <Scene embedded>
       <Box
         position={{ x: -1, y: 0.5, z: -3 }}
         rotation={{ x: 0, y: 45, z: 0 }}
