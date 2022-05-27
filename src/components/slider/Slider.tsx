@@ -9,7 +9,7 @@ type Props = {
 
 const Slider: React.FC<Props> = ({ min, max, initialValue, onChange }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(+e.target.value);
+    onChange(parseInt(e.target.value));
   };
 
   return (
