@@ -8,6 +8,7 @@ const SliderStyled = styled.input`
   outline: none;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
+  margin: 10px 0 10px 0;
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
