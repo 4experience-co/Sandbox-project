@@ -1,6 +1,8 @@
 import Slider from './components/slider/Slider';
 import { useState } from 'react';
 import './App.css';
+import Button from './components/button/Button';
+import CollapseComponent from './components/collapse-component/CollapseComponent';
 
 
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -11,13 +13,15 @@ function App() {
   const [showModal, setShowModal] = useState(true);
 
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <div style={{ width: "500px", margin:'auto'}}>
-          <Slider min={0} max={100} onChange={setCount} initialValue={count} />
-          <p>Slider value: {count}</p>
+    <div style={{ width: '600px', margin: '0 auto', backgroundColor: 'black' }}>
+      <CollapseComponent title='siema'>
+        <div style={{ display: 'flex' }}>
+          <Button variant='filled'>siema</Button>
+          <Button variant='filled'>siema</Button>
+          <Button variant='filled'>siema</Button>
+          <Button variant='filled'>siema</Button>
         </div>
-      </header>
+      </CollapseComponent>
     </div>
   );
 }
