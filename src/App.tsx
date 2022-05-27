@@ -3,6 +3,8 @@ import { useState } from 'react';
 import './App.css';
 
 
+import { Navigate, Route, Routes } from 'react-router-dom';
+import ModalExample from './pages/ModalExamplePage';
 
 function App() {
   const [count, setCount] = useState<number>(15);
