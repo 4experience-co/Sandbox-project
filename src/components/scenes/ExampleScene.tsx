@@ -1,37 +1,21 @@
 import 'aframe';
-
-import {
-  Entity,
-  Scene,
-  Box,
-  Sphere,
-  Cylinder,
-  Plane,
-  Sky,
-} from '@belivvr/aframe-react';
+import { Box, Sphere, Cylinder, Plane, Sky } from '@belivvr/aframe-react';
+import { Entity, Scene } from 'aframe-react';
 
 function ExampleScene() {
-  const log = () => { console.log("log")}
   return (
     <Scene embedded>
       <Entity
-        oculusTouchControls={{ hand: 'right' }}
+        oculus-touch-controls={{ hand: 'right' }}
         events={{
-          abuttondown: log,
-          bbuttondown: log,
+          bbuttondown: () => console.log('b clicked'),
+          abuttondown: () => console.log('a clicked'),
+          triggerdown: () => console.log('triggerdown'),
+          thumbsticktouchstart: () => console.log('thumbsticktouchstart'),
+          gripdown: () => console.log('a gripdown'),
         }}
       />
 
-      <Entity
-        oculusTouchControls={{ hand: 'left' }}
-        events={{
-          ybuttondown: log,
-          xbuttondown: log,
-          triggerdown: log,
-          triggerDown: log,
-          TriggerDown: log,
-        }}
-      />
       <Box
         position={{ x: -1, y: 0.5, z: -3 }}
         rotation={{ x: 0, y: 45, z: 0 }}
