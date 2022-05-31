@@ -1,11 +1,12 @@
 import 'aframe';
-import { Box, Sphere, Cylinder, Plane, Sky } from '@belivvr/aframe-react';
-import { Entity, Scene } from 'aframe-react';
+import { Sphere, Cylinder, Plane, Sky } from '@belivvr/aframe-react';
+import { Entity } from 'aframe-react';
 
 function ExampleScene() {
   return (
-    <Scene embedded>
+    <a-scene embedded>
       <Entity
+        super-hands
         oculus-touch-controls={{ hand: 'right' }}
         events={{
           bbuttondown: () => console.log('b clicked'),
@@ -15,12 +16,7 @@ function ExampleScene() {
           gripdown: () => console.log('a gripdown'),
         }}
       />
-
-      <Box
-        position={{ x: -1, y: 0.5, z: -3 }}
-        rotation={{ x: 0, y: 45, z: 0 }}
-        color='#4CC3D9'
-      />
+      <a-box position=' -1 0.5 -3' rotation='0 45 0' color='#87a128' />
       <Sphere
         position={{ x: 0, y: 1.25, z: -5 }}
         radius={1.25}
@@ -40,7 +36,7 @@ function ExampleScene() {
         color='#7BC8A4'
       />
       <Sky color='#ECECEC' />
-    </Scene>
+    </a-scene>
   );
 }
 
