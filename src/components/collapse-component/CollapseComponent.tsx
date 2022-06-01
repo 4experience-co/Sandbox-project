@@ -5,7 +5,7 @@ import Button from '../button/Button';
 import CollapseComponentStyled from './CollapseComponentStyled';
 import CollapseButton from './collapse-button/CollapseButton';
 import CollapseContentStyled from './collapse-content/CollapseContentStyled';
-import Hr from '../Hr/Hr';
+import Hr from '../horizontal-line/Hr';
 
 type Props = {
   children: React.ReactNode;
