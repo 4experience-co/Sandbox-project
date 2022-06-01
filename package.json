@@ -11,14 +11,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@belivvr/aframe-react": "^0.4.2",
-    "aframe": "github:aframevr/aframe#480a303b3c1932170552a3e4f9287298c1039c27",
     "framer-motion": "^6.3.3",
     "react": "^18.0.0",
     "react-collapse": "^5.1.1",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "super-hands": "^3.0.3"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
