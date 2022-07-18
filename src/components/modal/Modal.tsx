@@ -1,10 +1,7 @@
-import ReactDOM from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import Backdrop from './backdrop/Backdrop';
-import ModalOverlay from './modal-overlay/ModalOverlay';
-
-type Animation = 'slideUp' | 'slideDown' | 'slideRight' | 'slideLeft';
-
+import Backdrop from './Backdrop/Backdrop';
+import ModalOverlay from './ModalOverlay/ModalOverlay';
+import { Animation } from './types';
 const animations = {
   slideDown: {
     initial: {},

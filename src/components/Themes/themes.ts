@@ -1,0 +1,26 @@
+export const lightTheme = {
+  text: '#000000',
+  toggleBorder: '#FFF',
+  background: '#ffffff',
+  mainColor: '#d21d5b',
+  filledButtonTextColor: '#ffffff',
+  borderedButtonTextColor: '#d61d5c',
+  buttonActiveColor: '#d61d5c',
+  buttonActiveTextColor: '#ffffff',
+  collapseComponentBorderColor: '#f5f5f5',
+  hrColor: '#f5f5f5',
+  sliderColor: '#d3d3d3',
+};
+export const darkTheme = {
+  text: '#ffffff',
+  toggleBorder: '#FFF',
+  background: '#262625',
+  mainColor: '#8a6943',
+  filledButtonTextColor: '#ffffff',
+  borderedButtonTextColor: '#ffffff',
+  buttonActiveColor: '#785b3a',
+  buttonActiveTextColor: '#ffffff',
+  collapseComponentBorderColor: '#4a4948',
+  hrColor: '#4a4948',
+  sliderColor: '#d3d3d3',
+};

@@ -30,7 +30,7 @@ const Button: React.FC<Props> = ({
   const handleOnMouseDown = useCallback(() => {
     setIsHolding(true);
     if (onPress && !isDisabled) onPress();
-  }, []);
+  }, [onPress]);
 
   const handleHoldStart = useCallback(() => {
     setIsHolding(true);

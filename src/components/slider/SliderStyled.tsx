@@ -4,7 +4,7 @@ const SliderStyled = styled.input`
   -webkit-appearance: none;
   width: 90%;
   height: 1px;
-  background: #d3d3d3;
+  background: ${({ theme }) => theme.sliderColor};
   outline: none;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
@@ -16,8 +16,8 @@ const SliderStyled = styled.input`
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #d21d5b;
-    border: 3px solid #ffffff;
+    background: ${({ theme }) => theme.mainColor};
+    border: 3px solid ${({ theme }) => theme.background};
     cursor: pointer;
   }
 
@@ -25,7 +25,7 @@ const SliderStyled = styled.input`
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #d21d5b;
+    background: ${({ theme }) => theme.mainColor};
     cursor: pointer;
   }
 `;

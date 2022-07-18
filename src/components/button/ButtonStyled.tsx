@@ -3,29 +3,29 @@ import { ButtonVariant } from './Button';
 
 const ButtonStyled = styled.button<{ variant: ButtonVariant }>`
   background-color: ${({ variant }) => {
-    if (variant === 'filled') return '#d21d5b';
+    if (variant === 'filled') return ({ theme }) => theme.mainColor;
     if (variant === 'bordered') return 'transparent';
     else return 'white';
   }};
 
   color: ${({ variant }) => {
-    if (variant === 'filled') return 'white';
-    if (variant === 'bordered') return '#d21d5b';
+    if (variant === 'filled') return ({ theme }) => theme.filledButtonTextColor;
+    if (variant === 'bordered') return ({ theme }) => theme.borderedButtonTextColor;
     else return 'black';
   }};
 
   &:hover {
-    border-color: #d61d5c;
-    background-color: #d61d5c;
-    color: white;
+    border-color: ${({ theme }) => theme.buttonActiveColor};
+    background-color: ${({ theme }) => theme.buttonActiveColor};
+    color: ${({ theme }) => theme.buttonActiveTextColor};
   }
   &:active {
-    border-color: #d61d5c;
-    background-color: #d61d5c;
+    border-color: ${({ theme }) => theme.buttonActiveColor};
+    background-color: ${({ theme }) => theme.buttonActiveColor};
     color: white;
   }
 
-  border: 2px solid #d21d5b;
+  border: 2px solid ${({ theme }) => theme.mainColor};
   display: flex;
   justify-content: space-between;
   text-decoration: none;

@@ -1,14 +1,27 @@
-import {  Route, Routes } from 'react-router-dom';
-import ModalExamplePage from './pages/ModalExamplePage';
-import Home from './pages/Home';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
 
+import Button from "./components/Button";
+import { useDarkMode } from "./components/hooks";
+import ThemeButtonContainer from "./components/ThemeButtonContainer";
+import { darkTheme, lightTheme } from "./components/Themes";
+import Home from "./pages/Home/Home";
+
+import "./App.css";
 function App() {
+  const [theme, themeToggler] = useDarkMode();
+  const themeMode = theme === "light" ? lightTheme : darkTheme;
   return (
-    <Routes>
-      <Route path='/Sandbox-project' element={ <Home /> }/>
-      <Route path='/Sandbox-project/modal-demo' element={<ModalExamplePage/>} />
-    </Routes>
+    <ThemeProvider theme={themeMode}>
+      <ThemeButtonContainer>
+        <Button variant="filled" onPress={themeToggler}>
+          Change theme
+        </Button>
+      </ThemeButtonContainer>
+      <Routes>
+        <Route path="/Sandbox-project" element={<Home />} />
+      </Routes>
+    </ThemeProvider>
   );
 }
 
